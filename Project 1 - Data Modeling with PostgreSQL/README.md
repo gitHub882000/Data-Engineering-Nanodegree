@@ -128,3 +128,7 @@ These are the prerequisites to run the codes:
    ```
 5. Now you've got a complete Music Streaming PostgreSQL database. You can query
 and visualize the data, or check for the database constraints at `test.ipynb`.
+
+---
+## License
+Distributed under the MIT License. [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
