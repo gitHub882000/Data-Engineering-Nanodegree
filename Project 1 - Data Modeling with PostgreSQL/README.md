@@ -1,6 +1,4 @@
 # Music Streaming Data Modeling with PostgreSQL
-
----
 ## Introduction
 
 A startup called Sparkify wants to analyze the data they've been collecting on
@@ -14,7 +12,6 @@ The project is about creating a PostgreSQL database with tables designed to
 optimize queries on song play analysis. My role is to create a database schema
 and ETL pipeline for this analysis.
 
----
 ## Database schema design
 
 The Star Data Mart Schema is implemented in this ETL pipeline. Concretely, there
@@ -30,7 +27,6 @@ directly from `Songplays`. Moreover, you can get the event's details, such as
 user information or listened song information, simply by joining the fact table
 with the corresponding dimension table.
 
----
 ## Directory structure
 
 The overall directory structure of the project is as follow:
@@ -103,7 +99,6 @@ following.
    <img src="./images/Log data.png" width="1000" height="300">
 8. `images` contains necessary images for documentation and visualization.
 
----
 ## Instructions
 ### Prerequisites
 
@@ -129,6 +124,5 @@ These are the prerequisites to run the codes:
 5. Now you've got a complete Music Streaming PostgreSQL database. You can query
 and visualize the data, or check for the database constraints at `test.ipynb`.
 
----
 ## License
 Distributed under the MIT License. [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
