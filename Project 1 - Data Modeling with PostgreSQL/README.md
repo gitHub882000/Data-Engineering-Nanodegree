@@ -23,7 +23,7 @@ the fact table are 4 dimension tables `Users`, `Artists`, `Songs` and `Time`,
 which store entity details for further retrieval by means of `JOIN` operator. The
 figure below best describes the model's architecture:
 
-<img src="./images/Music Streaming ERD.png" width="500" height="350">
+<img src="./images/Music Streaming ERD.png" width="800" height="600">
 
 With the above architecture, you can easily query basic information of an event
 directly from `Songplays`. Moreover, you can get the event's details, such as
@@ -100,7 +100,7 @@ following.
    logs from a music streaming app based on specified configurations. The log
    files in the dataset are partitioned by year and month. And below is an
    example of what the data in a log file looks like.
-   <img src="./images/Log data.png" width="400" height="300">
+   <img src="./images/Log data.png" width="800" height="300">
 8. `images` contains necessary images for documentation and visualization.
 
 ---
