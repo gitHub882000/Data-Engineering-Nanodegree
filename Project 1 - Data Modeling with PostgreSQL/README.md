@@ -100,7 +100,7 @@ following.
    logs from a music streaming app based on specified configurations. The log
    files in the dataset are partitioned by year and month. And below is an
    example of what the data in a log file looks like.
-   <img src="./images/Log data.png" width="800" height="300">
+   <img src="./images/Log data.png" width="1000" height="300">
 8. `images` contains necessary images for documentation and visualization.
 
 ---
