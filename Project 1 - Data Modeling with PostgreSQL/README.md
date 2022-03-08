@@ -142,7 +142,7 @@ ORDER BY COUNT(*) DESC LIMIT 5
 ```
 And the result is:
 
-<img src="./images/Query 2.png" width="400" height="300">
+<img src="./images/Query 2.png" width="400" height="250">
 
 ### Query 2
 
@@ -161,7 +161,7 @@ ORDER BY COUNT(*) DESC LIMIT 5
 Having executed the above query, the result should be something
 like this:
 
-<img src="./images/Query 1.png" width="500" height="300">
+<img src="./images/Query 1.png" width="500" height="250">
 
 ## License
 Distributed under the MIT License. [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
