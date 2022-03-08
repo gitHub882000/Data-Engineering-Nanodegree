@@ -124,5 +124,44 @@ These are the prerequisites to run the codes:
 5. Now you've got a complete Music Streaming PostgreSQL database. You can query
 and visualize the data, or check for the database constraints at `test.ipynb`.
 
+## Example queries
+
+Now let's perform some basic analytics on the implemented
+database.
+
+### Query 1
+
+Supposed you want to get the top 5 locations where the Streaming
+system is used the most. This can be accomplished simply by
+ordering the number of rows in the fact table `songplays` grouped
+by `location` as follow:
+```
+SELECT location, COUNT(*)
+FROM songplays GROUP BY location
+ORDER BY COUNT(*) DESC LIMIT 5
+```
+And the result is:
+
+<img src="./images/Query 2.png" width="400" height="300">
+
+### Query 2
+
+Now, how about the top 5 interactive users of the Streaming system?
+Specifically, the interactivity of a user is determined by how
+many times he visits the site and listens to something in that
+session. The resulted table should include both the user
+information and the number of interactions. This can be answered
+using the following query:
+```
+SELECT user_id, first_name, last_name, gender, level, COUNT(*)
+FROM songplays NATURAL JOIN users
+GROUP BY user_id, first_name, last_name, gender, level
+ORDER BY COUNT(*) DESC LIMIT 5
+```
+Having executed the above query, the result should be something
+like this:
+
+<img src="./images/Query 1.png" width="500" height="300">
+
 ## License
 Distributed under the MIT License. [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
