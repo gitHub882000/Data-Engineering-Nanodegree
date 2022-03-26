@@ -13,21 +13,6 @@ their data from S3, stages them in Redshift, and transforms data into a set of
 dimensional tables for their analytics team to continue finding insights into
 what songs their users are listening to.
 
-## Data mart design
-
-The Star Data Mart Schema is implemented in this ETL pipeline. Concretely, there
-is 1 fact table `Songplays` that keeps users' music listening events. Surrounding
-the fact table are 4 dimension tables `Users`, `Artists`, `Songs` and `Time`,
-which store entity details for further retrieval by means of `JOIN` operator. The
-figure below best describes the model's architecture:
-
-<img src="./images/Music Streaming ERD.png" width="800" height="600">
-
-With the above architecture, you can easily query basic information of an event
-directly from `Songplays`. Moreover, you can get the event's details, such as
-user information or listened song information, simply by joining the fact table
-with the corresponding dimension table.
-
 ## Music data format
 
 In the project, I work with two datasets that reside in S3. Here are the S3
@@ -71,6 +56,43 @@ And below is an example of what the data in a log file, `2018-11-12-events.json`
 looks like.
 
 <img src="./images/Log data.png" width="1000" height="300">
+
+## Redshift database design
+
+My Redshift database has 2 schemas:
+
+* `staging`: contains staging tables that are used to store intermediate data
+extracted from S3 bucket.
+* `datamart`: contains data mart tables that supports songplay analysis.
+
+### Staging
+
+There are 2 staging tables: `staging_events` for the log data and `staging_songs`
+for the song data. The  figure illustrates the structure of 2 staging tables:
+
+<img src="./images/Staging ERD.png" width="400" height="500">
+
+### Data mart
+
+The Star Data Mart Schema is implemented in this ETL pipeline. Concretely, there
+is 1 fact table `songplays` that keeps users' music listening events. Surrounding
+the fact table are 4 dimension tables `users`, `artists`, `songs` and `time`,
+which store entity details for further retrieval by means of `JOIN` operator. The
+figure below best describes the model's architecture:
+
+<img src="./images/Data Mart ERD.png" width="800" height="600">
+
+With the above architecture, you can easily query basic information of an event
+directly from `songplays`. Moreover, you can get the event's details, such as
+user information or listened song information, simply by joining the fact table
+with the corresponding dimension table.
+
+About the distribution of data on the Redshift cluster, 3 dimension tables
+`artists`, `songs` and `time` are distributed in the `ALL` style since they
+contain so few data that can be completely stored on each node. Dimension table
+`users` and fact table `songplays` are stored using the distribution key
+`user_id` because they are huge and should be distributed under the same key - 
+`user_id` for more performant `JOIN`.
 
 ## Directory structure
 
