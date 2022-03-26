@@ -70,7 +70,7 @@ extracted from S3 bucket.
 There are 2 staging tables: `staging_events` for the log data and `staging_songs`
 for the song data. The  figure illustrates the structure of 2 staging tables:
 
-<img src="./images/Staging ERD.png" width="400" height="500">
+<img src="./images/Staging ERD.png" width="450" height="500">
 
 ### Data mart
 
